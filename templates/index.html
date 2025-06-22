@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Query</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PDF Query System</h1>
+            <p>Upload your PDF and ask questions powered by AI</p>
+        </div>
+        
+        <div class="section">
+            <h2>Upload PDF Document</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="upload-area" onclick="document.getElementById('pdfFile').click()">
+                    <div class="upload-icon">📁</div>
+                    <div class="upload-text">Click to select PDF file or drag and drop</div>
+                    <div class="upload-note">Maximum file size: 16MB</div>
+                    <input type="file" id="pdfFile" name="pdf" accept=".pdf" required>
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="btn" id="uploadBtn">Process PDF</button>
+                </div>
+            </form>
+            
+            <div id="uploadLoading" class="loading">
+                <div class="spinner"></div>
+                <div>Processing your PDF...</div>
+            </div>
+            
+            <div id="uploadResult" class="result"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Ask Questions</h2>
+            <form id="queryForm">
+                <input type="text" id="question" class="query-input" 
+                       placeholder="Ask a question about your PDF..." required>
+                <div class="button-container">
+                    <button type="submit" class="btn" id="queryBtn" disabled>Ask Question</button>
+                </div>
+            </form>
+            
+            <div id="queryLoading" class="loading">
+                <div class="spinner"></div>
+                <div>Searching for answers...</div>
+            </div>
+            
+            <div id="queryResult"></div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
