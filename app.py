@@ -112,6 +112,15 @@ def index():
 
 @app.route('/upload', methods = ['POST'])
 def upload_pdf():
+    try:
+        if 'pdf' not in request.files:
+            return jsonify({'success': False, 'error': 'No PDF file provided'})
+        file = request.files['pdf']
+        if file.filename == '':
+            return jsonify({'success': False, 'error': 'No file selected'})
+        
+        if not file.filename.lower().endswith('.pdf'):
+            return jsonify({'success': False, 'error': 'Please upload a PDF file'})
    
 
         
